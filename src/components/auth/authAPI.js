@@ -27,7 +27,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     dispatch(loadUserRequest());
 
-    const { data } = await axios.get(`/api/user/load/${username}`);
+    const { data } = await axios.post(`/api/user/load/${username}`);
 
     dispatch(loadUserSuccess(data));
 
