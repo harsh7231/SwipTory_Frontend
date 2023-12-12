@@ -31,10 +31,10 @@ export const loadUser = () => async (dispatch) => {
 
     dispatch(loadUserSuccess(data));
 
-    // toast.success("User Loaded");
+    toast.success(`${username} Login Successfully`);
   } catch (error) {
     dispatch(loadUserFailure());
-    toast.error(error.response.data);
+    //toast.error(error.response.data);
   }
 };
 
