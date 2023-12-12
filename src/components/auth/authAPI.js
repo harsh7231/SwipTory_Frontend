@@ -31,7 +31,10 @@ export const loadUser = () => async (dispatch) => {
 
     dispatch(loadUserSuccess(data));
 
-    toast.success(`${username} Login Successfully`);
+    toast.success(`${username} Login Successfully`,{
+      position: "bottom-right",
+      autoClose: 500,
+    });
   } catch (error) {
     dispatch(loadUserFailure());
     //toast.error(error.response.data);
@@ -50,7 +53,7 @@ export const register = (values) => async (dispatch) => {
     localStorage.setItem("username", JSON.stringify(data.username));
     toast.success("Register Successful", {
       position: "bottom-right",
-      autoClose: 2000,
+      autoClose: 500,
     });
   } catch (error) {
     dispatch(registerFailure(error.response.data));
@@ -71,11 +74,6 @@ export const login = (values) => async (dispatch) => {
 
     dispatch(getStoriesByUser(data.userId));
     localStorage.setItem("username", JSON.stringify(data.username));
-
-    toast.success("Login Successful", {
-      position: "bottom-right",
-      autoClose: 2000,
-    });
   } catch (error) {
     dispatch(loginFailure(error.response.data));
     //console.log("error", error.response.data);
